@@ -1,14 +1,33 @@
 #include <stdio.h>
 
+void bubble_sort(int *first, int n){  //function for bubble sort, n is a size of an array
+
+	int *ii = first, *jj = first;
+
+
+	for (int i = 0; i < n; i++){
+		jj = ii;
+
+		for (int j = i; j < n; j++){
+			if (*ii > *jj){
+				int c = *ii;
+				*ii = *jj;
+				*jj = c;
+			}
+			jj++;
+		}
+		ii++;
+	}
+}
+
 int main(void) {
-	char str[256];
 
-	printf("Print your string:\n");
+	int a[4] = {3, 1, 2, 3}; //it is an example
 
-	scanf("%s", str);
+	bubble_sort(a, 4);
 
-	int n = strlen(str);
+	for (int i= 0; i < 4; i++)
+		printf("%d ", a[i]);
 
-	for (int i = n - 1; i >= 0; i--)
-		printf("%c", str[i]);
+	return 0;
 }
